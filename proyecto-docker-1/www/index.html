@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛠️ Proyecto Docker de Iván</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales para personalización */
+        .ivan-badge {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .signature {
+            font-family: 'Courier New', monospace;
+            color: #4ECDC4;
+            border-left: 3px solid #4ECDC4;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        
+        .ivan-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px dashed rgba(78, 205, 196, 0.3);
+        }
+        
+        .ivan-title {
+            font-family: 'Arial Black', sans-serif;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header personalizado -->
+        <header>
+            <div class="ivan-badge">
+                <i class="fas fa-user-circle"></i> PROYECTO DE IVÁN
+            </div>
+            <h1 class="ivan-title"><i class="fas fa-docker"></i> Docker Stack: Apache + MariaDB</h1>
+            <p>Desarrollado por Iván Calamotre | Comunicación por puerto 3306</p>
+        </header>
+
+        <!-- Sección de presentación personal -->
+        <section class="ivan-section">
+            <h2><i class="fas fa-code"></i> Sobre este Proyecto</h2>
+            <p>Este stack Docker ha sido configurado y personalizado por <strong>Iván Calamotre</strong> como parte del aprendizaje de contenedores Docker, redes y servicios web.</p>
+            
+            <div class="signature">
+                <h3><i class="fas fa-terminal"></i> Configuración Técnica:</h3>
+                <ul>
+                    <li><strong>Autor:</strong> Iván Calamotre</li>
+                    <li><strong>Contenedores:</strong> Apache + MariaDB</li>
+                    <li><strong>Comunicación:</strong> Puerto 3306 (MySQL)</li>
+                    <li><strong>Stack:</strong> Docker Compose</li>
+                    <li><strong>Fecha:</strong> Enero 2026</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Arquitectura del Proyecto</h2>
+                <p>Configuración Docker desarrollada por <strong>Iván</strong> que implementa:</p>
+                
+                <div class="status">
+                    <div class="status-item">
+                        <span class="dot online"></span>
+                        <span>Apache Web Server (Puerto 8080)</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot online"></span>
+                        <span>MariaDB Database (Puerto 3306)</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot online"></span>
+                        <span>Red Interna Docker</span>
+                    </div>
+                </div>
+                
+                <div class="personal-note">
+                    <h3><i class="fas fa-lightbulb"></i> Nota del Desarrollador:</h3>
+                    <p>"Este proyecto demuestra la comunicación entre contenedores usando Docker Compose. Los contenedores Apache y MariaDB se conectan a través del puerto 3306 de forma segura y eficiente."</p>
+                    <p class="author">- Iván Calamotre</p>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="server apache">
+                    <i class="fas fa-server"></i>
+                    <h3>Apache Web</h3>
+                    <p>Servidor: 8080</p>
+                    <small>Por Iván</small>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div class="port-label">3306</div>
+                </div>
+                <div class="server mariadb">
+                    <i class="fas fa-database"></i>
+                    <h3>MariaDB</h3>
+                    <p>Puerto: 3306</p>
+                    <small>Config by Iván</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Section -->
+        <section class="test-section">
+            <h2><i class="fas fa-vial"></i> Panel de Pruebas - Iván's Lab</h2>
+            <p>Prueba la conexión entre los servicios configurados:</p>
+            
+            <button id="test-btn" onclick="testDB()">
+                <i class="fas fa-plug"></i> Probar Conexión MariaDB
+            </button>
+            
+            <div class="quick-commands">
+                <h3><i class="fas fa-terminal"></i> Comandos de Iván:</h3>
+                <code>docker-compose up -d</code>
+                <code>mysql -h 127.0.0.1 -P 3306 -u usuario_web -p</code>
+                <code>docker logs apache_server</code>
+            </div>
+            
+            <div id="result" class="result">
+                <div class="result-header">
+                    <i class="fas fa-laptop-code"></i> 
+                    <span>Resultados de la Prueba</span>
+                </div>
+                <p>Haz clic en el botón para probar la conexión con MariaDB.</p>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info">
+            <h2><i class="fas fa-cogs"></i> Tecnologías Implementadas</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fab fa-docker"></i>
+                    <h3>Docker Engine</h3>
+                    <p>Contenedorización de servicios.</p>
+                    <div class="tech-badge">Config: Iván</div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Docker Networking</h3>
+                    <p>Red interna entre contenedores.</p>
+                    <div class="tech-badge">Red: 3306 TCP</div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Control de Versiones</h3>
+                    <p>GitHub para el código fuente.</p>
+                    <div class="tech-badge">Repo: IvánCalamotre</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Personalizado -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-docker"></i>
+                    <span>Docker Stack by Iván</span>
+                </div>
+                <div class="footer-info">
+                    <p><i class="fas fa-user"></i> <strong>Desarrollador:</strong> Iván Calamotre</p>
+                    <p><i class="fas fa-calendar"></i> <strong>Proyecto:</strong> Enero 2026</p>
+                    <p><i class="fas fa-code"></i> <strong>Tecnologías:</strong> Docker, Apache, MariaDB, PHP</p>
+                </div>
+                <div class="footer-signature">
+                    <p>"Configuración Docker optimizada para desarrollo web"</p>
+                    <p class="signature-text">- Iván Calamotre</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Proyecto educativo de Docker • Apache + MariaDB • Puerto 3306</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // JavaScript adicional para personalización
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir hora actual
+            const now = new Date();
+            const timeElement = document.createElement('div');
+            timeElement.className = 'current-time';
+            timeElement.innerHTML = `<i class="fas fa-clock"></i> ${now.toLocaleDateString('es-ES', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })}`;
+            document.querySelector('header').appendChild(timeElement);
+            
+            // Efecto de escritura en el título
+            const title = document.querySelector('.ivan-title');
+            const originalText = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
