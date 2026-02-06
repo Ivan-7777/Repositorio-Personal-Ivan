@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: servidor_mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: mi_basedatos
+      MYSQL_USER: usuario_web
+      MYSQL_PASSWORD: password123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  apache:
+    image: php:8.2-apache
+    container_name: servidor_apache
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html
+    depends_on:
+      - mariadb
+    command: >
+      bash -c "docker-php-ext-install mysqli pdo pdo_mysql
+      && a2enmod rewrite
+      && echo 'ServerName localhost' >> /etc/apache2/apache2.conf
+      && apache2-foreground"
+
+volumes:
+  mysql_data:

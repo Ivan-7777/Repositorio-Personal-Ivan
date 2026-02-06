@@ -1,0 +1,28 @@
+# Docker volúmenes y archivos temporales
+mysql_data/
+data/
+*.log
+logs/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de entorno (no subir contraseñas)
+.env
+docker-compose.override.yml
+
+# Archivos temporales
+tmp/
+temp/
+
+# Backup de bases de datos
+*.sql
+*.dump
